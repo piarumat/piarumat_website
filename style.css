@@ -20,6 +20,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+::selection {
+  background-color: #DB862B; /* Colore dello sfondo */
+  color: black;            /* Colore del testo */
+}
 
 /* MODIFICA IL BODY */
 body {

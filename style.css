@@ -713,15 +713,16 @@ footer {
     margin-top: 100px;
 }
 
+/* --- FOOTER MAIN STYLES --- */
 .main-footer {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centra perfettamente il contenitore */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 40px;
-    margin-right: 200px;
+    /* margin-right: 200px; RIMOSSO: era questo che storceva tutto a sinistra */
 }
 
 /* Allineamento delle 3 colonne principali */
@@ -811,29 +812,6 @@ footer {
     color: #ffffff;
     transform: translateX(4px);
 }
-
-/* --- UNICA MEDIA QUERY MOBILE --- */
-@media (max-width: 768px) {
-    footer {
-        padding: 40px 20px;
-    }
-
-    .main-footer {
-        flex-direction: column;
-        gap: 35px;
-        text-align: center;
-    }
-
-    .footer-socials ul,
-    .footer-nav ul {
-        align-items: center;
-    }
-
-    .footer-socials a:hover,
-    .footer-nav a:hover {
-        transform: translateY(-2px);
-    }
-}
 /* Stile base del bottone hamburger per PC (Nascosto) */
 .hamburger-btn {
     display: none; /* Questo lo fa sparire completamente su schermi grandi */
@@ -911,11 +889,12 @@ footer {
         white-space: nowrap !important; 
     }
 
-    /* --- IL CONTENITORE DEL MENÙ LATERALE --- */
+    /* --- IL CONTENITORE DEL MENÙ LATERALE CORRETTO --- */
     header nav {
         position: fixed !important;
         top: 0 !important;
-        right: -100% !important; /* Ora si sposta solo il pannello dei link! */
+        right: -100% !important; 
+        left: auto !important; /* Impedisce che regole desktop tirino il menu a sinistra */
         width: 250px !important;  
         height: 100vh !important; 
         background-color: #232323 !important; 
@@ -923,11 +902,13 @@ footer {
         display: flex !important; 
         flex-direction: column !important;
         padding-top: 100px !important; 
+        margin: 0 !important; /* RESET FONDAMENTALE: rimuove i margini desktop */
+        box-sizing: border-box !important; /* Include bordi e padding nella larghezza */
         transition: right 0.3s ease-in-out !important; 
         z-index: 999 !important; 
     }
 
-    /* Quando il JS aggiunge .attivo, il menù entra visibilmente */
+    /* Quando il JS aggiunge .attivo, il menù si incolla al bordo destro */
     header nav.attivo {
         right: 0 !important;
     }
@@ -940,20 +921,23 @@ footer {
         margin: 0 !important;
         padding: 0 !important;
         gap: 15px !important;
+        width: 100% !important;
     }
 
     header nav ul li {
         width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     header nav a {
         display: block !important;
         font-size: 16pt !important;
-        padding: 12px 30px !important;
+        padding: 12px 25px !important;
         text-decoration: none !important;
         color: #ffffff !important;
         text-align: left !important;
-        /* LA RIGA MAGICA CHE RISOLVE IL BUG: */
+        box-sizing: border-box !important;
         -webkit-tap-highlight-color: transparent !important;
     }
 
@@ -1271,7 +1255,45 @@ footer {
         padding: 16px !important; /* Bottone più cicciotto, perfetto per il touch */
         font-size: 1.1rem !important;
     }
+    /* --- MEDIA QUERY MOBILE CORRETTA --- */
+    footer {
+        padding: 40px 20px;
+    }
+
+    .main-footer {
+        flex-direction: column;
+        align-items: center; /* Centra le colonne verticalmente */
+        gap: 35px;
+        text-align: center;
+    }
+
+    .copyright-footer,
+    .footer-socials,
+    .footer-nav {
+        width: 100%;
+        align-items: center;
+    }
+
+    .copyright-footer {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo-main {
+        max-width: 180px;
+    }
+
+    .footer-socials ul,
+    .footer-nav ul {
+        align-items: center;
+    }
+
+    .footer-socials a:hover,
+    .footer-nav a:hover {
+        transform: translateY(-2px);
+    }
 }
+
 /* Animazione 1: Da grande a dimensione normale */
 @keyframes rimpicciolisci {
     0% {

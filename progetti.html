@@ -10,9 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 <body>
+    
     <video autoplay loop muted playsinline id="video-sfondo">
         <source src="background.mp4" type="video/mp4">
         Il tuo browser non supporta i video come sfondo.
@@ -20,7 +21,6 @@
     <header>
     <div class="logo-container">
         <img src="logo.png" alt="Piarumat Logo" class="site-logo">
-        <span class="site-title">Piarumat</span>
     </div>
     
     <nav id="nav-menu">
@@ -37,6 +37,10 @@
         <span></span>
     </button>
 </header>
+<!-- NOTIFICA TOAST -->
+<div id="toast-notifica" class="toast">
+    <i class="fa-solid fa-circle-check"></i> IP copiato negli appunti!
+</div>
 <main class="sito-centrato">
     <h1 class="titolo-pagina">I miei progetti</h1>
 
@@ -97,6 +101,7 @@
             </a>
         </div>
     </div>
+</main>
         <script src="script.js"></script>
         <script src="hamburger.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -107,8 +112,46 @@
     offset: 120     // Fa partire l'animazione 120px prima che l'elemento appaia
   });
 </script>
-    </body>
-    <footer>
-        <p>&copy; Piarumat 2026 - Tutti i diritti sono riservati</p>
-    </footer>
-</main>
+<footer>
+    <section class="main-footer">
+    <div class="copyright-footer">
+    <!-- Solo il logo grande -->
+    <img src="pmlogo.png" alt="Piarumat Digital Artist" class="footer-logo-main">
+    
+    <!-- Scritta dei diritti sotto al logo -->
+    <small>&copy; Piarumat 2026 - Tutti i diritti sono riservati</small>
+</div>
+
+        <div class="footer-socials">
+            <h3>Link social</h3>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/channel/UCN0rccnhmolAXcbDa1HrVtg" target="_blank" title="Seguimi su Youtube">
+                        <i class="fa-brands fa-youtube"></i> Youtube
+                    </a>
+                </li>
+                <li>
+                    <span title="Il mio nick discord">
+                        <i class="fa-brands fa-discord"></i> _matmatista_
+                    </span>
+                </li>
+                <li>
+                    <a href="https://minecraft-italia.net/members/piarumat.53831/" target="_blank" title="Il mio profilo Minecraft Italia">
+                        <i class="fa-solid fa-cube"></i> Minecraft Italia
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-nav">
+            <h3>Navigazione</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="progetti.html">Progetti</a></li>
+                <li><a href="contatti.html">Contatti</a></li>
+            </ul>
+        </div>
+    </section>
+</footer>
+</body>
+</html>

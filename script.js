@@ -1,12 +1,22 @@
 const bottone = document.getElementById('bottone-copia');
+const toast = document.getElementById('toast-notifica');
+let timerToast;
 
-// Aggiungiamo la "e" (l'evento del click) dentro le parentesi
 bottone.addEventListener('click', (e) => {
-    e.preventDefault(); // Impedisce al link di ricaricare la pagina o fare scherzi
+    e.preventDefault();
     
     navigator.clipboard.writeText("hyper-mc.it")
         .then(() => {
-            alert("IP copiato negli appunti");
+            // Mostra la notifica
+            toast.classList.add('mostra');
+            
+            // Resetta il timer precedente se l'utente clicca più volte rapidamente
+            clearTimeout(timerToast);
+            
+            // Nasconde la notifica automaticamente dopo 3 secondi
+            timerToast = setTimeout(() => {
+                toast.classList.remove('mostra');
+            }, 3000);
         })
         .catch(err => {
             console.error("Errore durante la copia: ", err);
